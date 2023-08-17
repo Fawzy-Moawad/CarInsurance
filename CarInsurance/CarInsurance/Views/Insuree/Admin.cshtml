@@ -1,0 +1,39 @@
+﻿@model List<CarInsurance.Models.Insuree>
+
+@{
+    ViewBag.Title = "Admin";
+}
+
+<h2>Admin</h2>
+
+<table class="table">
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email Address</th>
+        <th>Date of Birth</th>
+        <th>Car Year</th>
+        <th>Car Make</th>
+        <th>Car Model</th>
+        <th>DUI</th>
+        <th>Speeding Tickets</th>
+        <th>Coverage Type</th>
+        <th>Quote</th>
+    </tr>
+    @foreach (var insuree in Model)
+    {
+        <tr>
+            <td>@insuree.FirstName</td>
+            <td>@insuree.LastName</td>
+            <td>@insuree.EmailAddress</td>
+            <td>@insuree.DateOfBirth.ToShortDateString()</td>
+            <td>@insuree.CarYear</td>
+            <td>@insuree.CarMake</td>
+            <td>@insuree.CarModel</td>
+            <td>@(insuree.DUI ? "Yes" : "No")</td>
+            <td>@insuree.SpeedingTickets</td>
+            <td>@(insuree.CoverageType ? "Full" : "Basic")</td>
+            <td>@insuree.Quote</td>
+        </tr>
+    }
+</table>
